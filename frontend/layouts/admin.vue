@@ -35,7 +35,7 @@
       <!-- Admin info + logout -->
       <div class="px-4 py-4 border-t border-gray-200">
         <div class="flex items-center gap-3 mb-3">
-          <div class="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center">
+          <div class="w-8 h-8 rounded-full bg-stone-100 border border-stone-200 flex items-center justify-center">
             <span class="text-[var(--color-accent)] text-xs font-bold">A</span>
           </div>
           <div class="flex-1 min-w-0">

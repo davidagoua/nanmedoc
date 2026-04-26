@@ -17,8 +17,8 @@
     --color-text:         #212529; /* Dark text */
     --color-text-muted:   #6c757d;
     --color-text-faint:   #adb5bd;
-    --color-accent:       #0084ff; /* Bright Blue from Mockup */
-    --color-accent-hover: #006fe6;
+    --color-accent:       #8b5e3c; /* Warm Brown */
+    --color-accent-hover: #6f4a2f;
     --color-accent-text:  #ffffff;
 
     /* Component tokens */
@@ -68,7 +68,7 @@
   }
 
   ::selection {
-    background-color: rgba(0, 132, 255, 0.2);
+    background-color: rgba(139, 94, 60, 0.2);
     color: var(--color-accent);
   }
 
@@ -147,7 +147,7 @@
   }
   .input:focus {
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.15);
   }
   .label {
     @apply block text-sm font-medium mb-1.5;

@@ -37,13 +37,13 @@
         <!-- Active filters -->
         <div v-if="query || selectedCategory" class="flex items-center justify-center gap-3 flex-wrap pt-2">
           <span class="text-sm text-gray-400">Filtres actifs :</span>
-          <span v-if="query" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[var(--color-accent)] text-sm font-medium border border-blue-100">
+          <span v-if="query" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 text-[var(--color-accent)] text-sm font-medium border border-stone-200">
             "{{ query }}"
-            <button class="hover:text-blue-800" @click="query = ''; doSearch()"><AppIcon name="x" class="w-3.5 h-3.5" /></button>
+            <button class="hover:text-gray-900" @click="query = ''; doSearch()"><AppIcon name="x" class="w-3.5 h-3.5" /></button>
           </span>
-          <span v-if="selectedCategory" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[var(--color-accent)] text-sm font-medium border border-blue-100">
+          <span v-if="selectedCategory" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-100 text-[var(--color-accent)] text-sm font-medium border border-stone-200">
             {{ categories.find(c => c.id === selectedCategory)?.name }}
-            <button class="hover:text-blue-800" @click="selectedCategory = ''; doSearch()"><AppIcon name="x" class="w-3.5 h-3.5" /></button>
+            <button class="hover:text-gray-900" @click="selectedCategory = ''; doSearch()"><AppIcon name="x" class="w-3.5 h-3.5" /></button>
           </span>
         </div>
       </div>
