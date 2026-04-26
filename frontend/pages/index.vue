@@ -5,13 +5,22 @@
       <Meta name="description" content="Recherchez et consultez les morceaux de musique du répertoire." />
     </Head>
 
-    <!-- Hero section (Mockup inspired) -->
-    <section class="page-container pt-20 pb-12 sm:pt-28 sm:pb-16">
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-800 leading-tight mb-12">
-          Répertoire de <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">chant</span><br class="hidden sm:block mt-2" />
-          en <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">langue</span>
+    <!-- Hero section (Premium with Background) -->
+    <section class="relative bg-stone-900 pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="/hero-bg.png" class="w-full h-full object-cover opacity-40" alt="Background" />
+        <div class="absolute inset-0 bg-gradient-to-b from-stone-900/80 via-stone-900/40 to-white"></div>
+      </div>
+      
+      <div class="page-container relative z-10 max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight mb-6">
+          Répertoire de <span class="text-[var(--color-accent)] font-medium border-b-4 border-[var(--color-accent)]/30 pb-1">chant</span><br class="hidden sm:block mt-2" />
+          en <span class="text-[var(--color-accent)] font-medium border-b-4 border-[var(--color-accent)]/30 pb-1">langue</span>
         </h1>
+        <p class="text-stone-200 text-lg sm:text-xl max-w-2xl mx-auto font-light tracking-wide opacity-90">
+          Explorez et écoutez les chants sacrés et culturels de notre patrimoine.
+        </p>
       </div>
     </section>
 
