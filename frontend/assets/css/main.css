@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables — Light Theme (Enforced) ───────────────────── */
+@layer base {
+  :root,
+  html,
+  html.light,
+  html.dark {
+    /* We enforce the light theme regardless of the class */
+    --color-bg:           #f8f9fa; /* Light gray page background */
+    --color-surface:      #ffffff; /* White cards/header */
+    --color-surface-2:    #f1f3f5;
+    --color-border:       #e9ecef;
+    --color-border-soft:  #f8f9fa;
+    --color-text:         #212529; /* Dark text */
+    --color-text-muted:   #6c757d;
+    --color-text-faint:   #adb5bd;
+    --color-accent:       #0084ff; /* Bright Blue from Mockup */
+    --color-accent-hover: #006fe6;
+    --color-accent-text:  #ffffff;
+
+    /* Component tokens */
+    --card-bg:            #ffffff;
+    --card-border:        transparent;
+    --card-hover-border:  transparent;
+    --input-bg:           #ffffff;
+    --input-border:       #dee2e6;
+    --input-text:         #212529;
+    --input-placeholder:  #adb5bd;
+    --btn-sec-bg:         #f8f9fa;
+    --btn-sec-text:       #495057;
+    --btn-sec-border:     #e9ecef;
+    --btn-sec-hover:      #e2e6ea;
+    --btn-ghost-hover:    #f1f3f5;
+    --nav-link-text:      #495057;
+    --nav-link-hover-bg:  #f8f9fa;
+    --table-head-bg:      #f8f9fa;
+    --table-head-text:    #495057;
+    --table-row-border:   #e9ecef;
+    --table-row-hover:    #f8f9fa;
+    --table-cell-text:    #212529;
+    --glass-bg:           rgba(255, 255, 255, 0.95);
+    --scrollbar-thumb:    #ced4da;
+    --scrollbar-hover:    #adb5bd;
+    --section-title:      #212529;
+    --sidebar-bg:         #ffffff;
+    --topbar-bg:          #ffffff;
+    --audio-controls:     #f8f9fa;
+    --voice-btn-bg:       #f8f9fa;
+    --voice-btn-text:     #495057;
+    --voice-btn-border:   #dee2e6;
+    
+    --shadow-card:        0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    --shadow-card-hover:  0 20px 40px -15px rgba(0, 0, 0, 0.12);
+  }
+
+  html {
+    @apply scroll-smooth;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--color-bg);
+  }
+
+  ::selection {
+    background-color: rgba(0, 132, 255, 0.2);
+    color: var(--color-accent);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background-color: var(--scrollbar-thumb);
+    transition: background-color 0.2s;
+  }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--scrollbar-hover); }
+}
+
+/* ── Components ─────────────────────────────────────────────── */
+@layer components {
+  /* Cards */
+  .card {
+    @apply rounded-2xl bg-[var(--card-bg)] transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  .card-hover {
+    @apply hover:-translate-y-1;
+    box-shadow: var(--shadow-card);
+  }
+  .card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold
+           transition-all duration-200 focus:outline-none focus-visible:ring-2
+           focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           min-h-touch min-w-touch px-5 py-2.5 text-sm;
+  }
+  .btn-primary {
+    @apply btn text-white;
+    background-color: var(--color-accent);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+  }
+  .btn-secondary {
+    @apply btn;
+    background-color: var(--btn-sec-bg);
+    color: var(--btn-sec-text);
+    border: 1px solid var(--btn-sec-border);
+  }
+  .btn-secondary:hover {
+    background-color: var(--btn-sec-hover);
+  }
+  .btn-danger {
+    @apply btn bg-red-50 text-red-600 border border-red-200 hover:bg-red-100;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-[var(--color-text-muted)];
+  }
+  .btn-ghost:hover {
+    background-color: var(--btn-ghost-hover);
+  }
+  .btn-icon {
+    @apply btn !px-2.5 !min-w-0;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full rounded-xl border px-4 py-3 text-sm transition-all duration-200 outline-none;
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+    color: var(--input-text);
+  }
+  .input::placeholder {
+    color: var(--input-placeholder);
+  }
+  .input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.15);
+  }
+  .label {
+    @apply block text-sm font-medium mb-1.5;
+    color: var(--color-text);
+  }
+  .select {
+    @apply input appearance-none cursor-pointer;
+  }
+  .textarea {
+    @apply input resize-none;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-gold {
+    /* Kept class name but mapped to blue accent for simplicity, or keep gold if user wants it */
+    @apply badge text-white;
+    background-color: var(--color-accent);
+  }
+  .badge-blue {
+    @apply badge text-white;
+    background-color: var(--color-accent);
+  }
+
+  /* Voice button */
+  .voice-btn {
+    @apply btn border !px-4 !py-2 !text-xs !min-h-[38px] uppercase tracking-wider;
+    background-color: var(--voice-btn-bg);
+    color: var(--voice-btn-text);
+    border-color: var(--voice-btn-border);
+  }
+  .voice-btn:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .voice-btn-active {
+    background-color: rgba(0, 132, 255, 0.1) !important;
+    border-color: var(--color-accent) !important;
+    color: var(--color-accent) !important;
+  }
+
+  /* Page layout helpers */
+  .page-container {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .section-title {
+    @apply font-display text-fluid-xl font-bold;
+    color: var(--section-title);
+  }
+
+  /* Admin sidebar link */
+  .nav-link {
+    @apply flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all;
+    color: var(--nav-link-text);
+  }
+  .nav-link:hover {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--color-text);
+  }
+  .nav-link-active {
+    background-color: rgba(0, 132, 255, 0.1);
+    color: var(--color-accent);
+    border: 1px solid rgba(0, 132, 255, 0.2);
+  }
+
+  /* Table */
+  .table-wrapper {
+    @apply overflow-x-auto rounded-2xl border;
+    border-color: var(--color-border);
+  }
+  .table {
+    @apply w-full text-sm text-left;
+  }
+  .table th {
+    @apply px-4 py-3 font-semibold text-xs uppercase tracking-wider;
+    background-color: var(--table-head-bg);
+    color: var(--table-head-text);
+  }
+  .table td {
+    @apply px-4 py-3 border-t;
+    border-color: var(--table-row-border);
+    color: var(--table-cell-text);
+  }
+  .table tr:hover td {
+    background-color: var(--table-row-hover);
+  }
+}
+
+/* ── Utilities ───────────────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)] bg-clip-text text-transparent;
+  }
+  .bg-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+}
+
+/* ── Keyframes ───────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Audio player ────────────────────────────────────────────── */
+audio {
+  width: 100%;
+  height: 40px;
+  border-radius: 999px;
+  outline: none;
+}
+audio::-webkit-media-controls-panel {
+  background: var(--audio-controls);
+}

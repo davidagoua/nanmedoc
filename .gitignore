@@ -1,0 +1,36 @@
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environments
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# PocketBase
+pocketbase/pb_data/
+pocketbase/pocketbase
+*.db
+*.db-shm
+*.db-wal
+
+# Frontend (Nuxt/Node)
+frontend/node_modules/
+frontend/.nuxt/
+frontend/.output/
+frontend/dist/
+frontend/.env

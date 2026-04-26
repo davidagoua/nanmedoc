@@ -1,0 +1,153 @@
+[
+  {
+    "id": "categories",
+    "name": "pb_categories",
+    "type": "base",
+    "system": false,
+    "fields": [
+      {
+        "id": "field_cat_name",
+        "name": "name",
+        "type": "text",
+        "required": true,
+        "min": 1,
+        "max": 200,
+        "pattern": ""
+      },
+      {
+        "id": "field_cat_slug",
+        "name": "slug",
+        "type": "text",
+        "required": false,
+        "min": null,
+        "max": 200,
+        "pattern": "^[a-z0-9-]+$"
+      },
+      {
+        "id": "field_cat_desc",
+        "name": "description",
+        "type": "text",
+        "required": false,
+        "min": null,
+        "max": 2000,
+        "pattern": ""
+      }
+    ],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
+    "deleteRule": "@request.auth.id != \"\""
+  },
+  {
+    "id": "audiofiles",
+    "name": "pb_audiofiles",
+    "type": "base",
+    "system": false,
+    "fields": [
+      {
+        "id": "field_af_voice",
+        "name": "voice",
+        "type": "select",
+        "required": true,
+        "maxSelect": 1,
+        "values": ["soprano", "alto", "tenor", "basse", "piano", "mixte"]
+      },
+      {
+        "id": "field_af_file",
+        "name": "file",
+        "type": "file",
+        "required": true,
+        "maxSelect": 1,
+        "maxSize": 20971520,
+        "mimeTypes": ["audio/mpeg", "audio/ogg", "audio/mp4", "audio/wav"],
+        "thumbs": []
+      },
+      {
+        "id": "field_af_song",
+        "name": "song",
+        "type": "relation",
+        "required": true,
+        "collectionId": "songs",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": 1,
+        "displayFields": []
+      }
+    ],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
+    "deleteRule": "@request.auth.id != \"\""
+  },
+  {
+    "id": "songs",
+    "name": "pb_songs",
+    "type": "base",
+    "system": false,
+    "fields": [
+      {
+        "id": "field_song_title",
+        "name": "title",
+        "type": "text",
+        "required": true,
+        "min": 1,
+        "max": 500,
+        "pattern": ""
+      },
+      {
+        "id": "field_song_category",
+        "name": "category",
+        "type": "relation",
+        "required": true,
+        "collectionId": "categories",
+        "cascadeDelete": false,
+        "minSelect": null,
+        "maxSelect": 1,
+        "displayFields": ["name"]
+      },
+      {
+        "id": "field_song_composer",
+        "name": "composer",
+        "type": "text",
+        "required": false,
+        "min": null,
+        "max": 300,
+        "pattern": ""
+      },
+      {
+        "id": "field_song_lyrics",
+        "name": "lyrics",
+        "type": "editor",
+        "required": false
+      },
+      {
+        "id": "field_song_partition",
+        "name": "partition",
+        "type": "file",
+        "required": false,
+        "maxSelect": 1,
+        "maxSize": 10485760,
+        "mimeTypes": ["application/pdf", "image/jpeg", "image/png", "image/webp"],
+        "thumbs": []
+      },
+      {
+        "id": "field_song_audiotracks",
+        "name": "audio_tracks",
+        "type": "relation",
+        "required": false,
+        "collectionId": "audiofiles",
+        "cascadeDelete": true,
+        "minSelect": null,
+        "maxSelect": null,
+        "displayFields": ["voice"]
+      }
+    ],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != \"\"",
+    "updateRule": "@request.auth.id != \"\"",
+    "deleteRule": "@request.auth.id != \"\""
+  }
+]
