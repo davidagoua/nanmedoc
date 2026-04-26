@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>Répertoire musical</Title>
+      <Title>Répertoire de chant en langue</Title>
       <Meta name="description" content="Recherchez et consultez les morceaux de musique du répertoire." />
     </Head>
 
@@ -9,8 +9,8 @@
     <section class="page-container pt-20 pb-12 sm:pt-28 sm:pb-16">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-800 leading-tight mb-12">
-          Je veux découvrir <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">tous les morceaux</span><br class="hidden sm:block mt-2" />
-          du <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">répertoire musical</span>
+          Répertoire de <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">chant</span><br class="hidden sm:block mt-2" />
+          en <span class="text-[var(--color-accent)] font-medium border-b-2 border-[var(--color-accent)]/30 pb-1">langue</span>
         </h1>
       </div>
     </section>

@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      pocketbaseUrl: 'http://localhost:8090',
+      pocketbaseUrl: 'https://pbm.songon.space',
     },
   },
 
