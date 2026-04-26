@@ -7,7 +7,7 @@
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2 group">
           <AppIcon name="music" class="text-[var(--color-accent)] text-2xl" />
-          <span class="font-display font-bold text-gray-900 text-[22px] hidden sm:block tracking-tight">RepertoryHub</span>
+          <span class="font-display font-bold text-gray-900 text-[22px] hidden sm:block tracking-tight">Nanmèro</span>
         </NuxtLink>
 
         <!-- Desktop Main Nav -->

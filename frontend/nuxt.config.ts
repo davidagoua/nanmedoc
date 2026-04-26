@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s | RepertoryHub',
+      titleTemplate: '%s | Nanmèro',
       htmlAttrs: { lang: 'fr' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

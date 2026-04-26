@@ -11,7 +11,7 @@
       <!-- Logo -->
       <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-200">
         <AppIcon name="music" class="text-[var(--color-accent)] text-xl" />
-        <span class="font-display font-bold text-gray-900 text-lg">RepertoryHub Admin</span>
+        <span class="font-display font-bold text-gray-900 text-lg">Nanmèro Admin</span>
       </div>
 
       <!-- Nav -->
