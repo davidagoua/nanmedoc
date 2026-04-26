@@ -75,6 +75,13 @@
             </div>
           </div>
         </div>
+
+        <!-- Comments Section -->
+        <div class="border-t border-stone-100 pt-12 pb-16">
+          <div class="max-w-4xl">
+            <SongComments :song-id="song.id" />
+          </div>
+        </div>
       </div>
     </template>
   </div>

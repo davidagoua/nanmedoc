@@ -149,5 +149,43 @@
     "createRule": "@request.auth.id != \"\"",
     "updateRule": "@request.auth.id != \"\"",
     "deleteRule": "@request.auth.id != \"\""
+  },
+  {
+    "id": "comments",
+    "name": "pb_comments",
+    "type": "base",
+    "system": false,
+    "fields": [
+      {
+        "id": "comment_song",
+        "name": "song",
+        "type": "relation",
+        "required": true,
+        "collectionId": "songs",
+        "cascadeDelete": true,
+        "maxSelect": 1
+      },
+      {
+        "id": "comment_name",
+        "name": "name",
+        "type": "text",
+        "required": true,
+        "min": 2,
+        "max": 100
+      },
+      {
+        "id": "comment_content",
+        "name": "content",
+        "type": "text",
+        "required": true,
+        "min": 1,
+        "max": 2000
+      }
+    ],
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "",
+    "updateRule": null,
+    "deleteRule": null
   }
 ]
