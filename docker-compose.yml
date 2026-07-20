@@ -9,9 +9,6 @@ services:
       - ./pocketbase/pb_data:/pb_data
       - ./pocketbase/pb_migrations:/pb_migrations
     environment:
-      # Ces variables sont utilisées uniquement au premier démarrage
-      # pour créer le compte admin initial.
-      # Changez-les avant le premier lancement puis supprimez-les si souhaité.
       - PB_ADMIN_EMAIL=${PB_ADMIN_EMAIL:-admin@repertoryhub.local}
       - PB_ADMIN_PASSWORD=${PB_ADMIN_PASSWORD:-changeme_secure_password}
     healthcheck:
@@ -30,7 +27,7 @@ services:
     expose:
       - "3000"
     environment:
-      - NUXT_PUBLIC_POCKETBASE_URL=http://pocketbase:8090
+      - NUXT_PUBLIC_POCKETBASE_URL=${NUXT_PUBLIC_POCKETBASE_URL}
     depends_on:
       pocketbase:
         condition: service_healthy
