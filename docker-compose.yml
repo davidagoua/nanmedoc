@@ -3,8 +3,8 @@ services:
     image: ghcr.io/muchobien/pocketbase:latest
     container_name: repertoryhub_pocketbase
     restart: unless-stopped
-    ports:
-      - "8090:8090"
+    expose:
+      - "8090"
     volumes:
       - ./pocketbase/pb_data:/pb_data
       - ./pocketbase/pb_migrations:/pb_migrations
@@ -27,8 +27,8 @@ services:
       dockerfile: Dockerfile
     container_name: repertoryhub_nuxt
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     environment:
       - NUXT_PUBLIC_POCKETBASE_URL=http://pocketbase:8090
     depends_on:
